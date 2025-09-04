@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro | Firebase Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(120deg, #f665ea 0%, #fd85d7 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .register-container {
+      background: #fff;
+      padding: 38px 32px 32px 32px;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #f71cde22;
+      max-width: 370px;
+      width: 100%;
+      text-align: center;
+    }
+    .register-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f71ccb;
+      margin-bottom: 18px;
+    }
+    .register-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .register-form input {
+      padding: 12px 14px;
+      border: 1px solid #f71cde;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .register-form input:focus {
+      border: 1.5px solid #f01cf7;
+    }
+    .register-btn {
+      background: linear-gradient(90deg, #f71cde 0%, #fa61f2 100%);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px #f71cb233;
+    }
+    .register-btn:hover {
+      box-shadow: 0 4px 16px #f71c9166;
+      transform: translateY(-2px) scale(1.03);
+    }
+    .register-links {
+      margin-top: 18px;
+      font-size: 0.98rem;
+      color: #555;
+    }
+    .register-links a {
+      color: #f71cde;
+      text-decoration: none;
+      margin: 0 6px;
+      font-weight: 600;
+      transition: text-decoration 0.2s;
+    }
+    .register-links a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 500px) {
+      .register-container {
+        padding: 18px 6px 18px 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <div class="register-title">Crear Cuenta</div>
+    <form class="register-form">
+      <input type="text" placeholder="Usuario" name="username" required autocomplete="username">
+      <input type="email" placeholder="Correo electrónico" name="email" required autocomplete="email">
+      <input type="password" placeholder="Contraseña" name="password" required autocomplete="new-password">
+      <input type="password" placeholder="Confirmar contraseña" name="confirm_password" required autocomplete="new-password">
+      <button type="submit" class="register-btn">Registrarse</button>
+    </form>
+    <div class="register-links">
+      ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script>
+    // TODO: Reemplaza con tu configuración real de Firebase
+    const firebaseConfig = {
+    apiKey: "AIzaSyBMENAMJxo6njZuXtwOGLW1OcnKw1Mm-9U",
+    authDomain: "my-projects-54ba6.firebaseapp.com",
+    projectId: "my-projects-54ba6",
+    storageBucket: "my-projects-54ba6.firebasestorage.app",
+    messagingSenderId: "526413125585",
+    appId: "1:526413125585:web:f0c8d249a6aeef440d72f0",
+    measurementId: "G-R2PZ9TKRKZ"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    const form = document.querySelector('.register-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = form.username.value.trim();
+      const email = form.email.value.trim();
+      const password = form.password.value;
+      const confirmPassword = form.confirm_password.value;
+      if (password !== confirmPassword) {
+        alert('Las contraseñas no coinciden.');
+        return;
+      }
+      try {
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        await userCredential.user.updateProfile({ displayName: username });
+        alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
+        window.location.href = 'login.html';
+      } catch (error) {
+        alert('Error: ' + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

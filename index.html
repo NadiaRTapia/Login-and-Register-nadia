@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Firebase Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(120deg, #f665e5 0%, #fd85eb 100%);
+      min-height: 100vh;
+      color: #222;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 60px 20px 60px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #f71cbd;
+      text-shadow: 1px 2px 8px #fff7;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(90deg, #f71cec 0%, #fa61f2 100%);
+      padding: 10px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px #f71cd333;
+    }
+    nav a:hover {
+      box-shadow: 0 4px 16px #f71cb266;
+      transform: translateY(-2px) scale(1.05);
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      text-align: center;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #f71ce1;
+      text-shadow: 0 2px 12px #fff7;
+    }
+    .hero-desc {
+      font-size: 1.3rem;
+      margin-bottom: 32px;
+      color: #333;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, #f71cec 0%, #fa61f2 100%);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 38px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #f71cd333;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cta-btn:hover {
+      box-shadow: 0 4px 16px #f71cb266;
+      transform: translateY(-2px) scale(1.05);
+    }
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px 10px 10px 10px;
+      }
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .hero-desc {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="loader">
+    <div class="loader-animation">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="loader-text">¡Cargando magia Firebase!</div>
+  </div>
+  <div id="main-content" style="display:none;">
+    <header>
+      <div class="logo">Firebase Project</div>
+      <nav>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <h1 class="hero-title">Bienvenido a Firebase Project</h1>
+      <p class="hero-desc">Descubre una plataforma moderna, segura y fácil de usar para gestionar tus proyectos y usuarios. ¡Explora, regístrate o inicia sesión para comenzar tu experiencia!</p>
+      <a href="register.html" class="cta-btn">¡Regístrate Gratis!</a>
+    </section>
+    <section class="features">
+      <h2>¿Por qué elegirnos?</h2>
+      <div class="features-list">
+        <div class="feature-card">
+          <span class="emoji">🚀</span>
+          <h3>Rápido y Seguro</h3>
+          <p>Tu información está protegida y el acceso es instantáneo gracias a la tecnología de Firebase.</p>
+        </div>
+        <div class="feature-card">
+          <span class="emoji">��</span>
+          <h3>Automatización Inteligente</h3>
+          <p>Automatiza tareas repetitivas y ahorra tiempo con nuestras herramientas inteligentes.</p>
+        </div>
+        <div class="feature-card">
+          <span class="emoji">🎨</span>
+          <h3>Personalización</h3>
+          <p>Personaliza tu experiencia y haz que la plataforma se adapte a tus necesidades.</p>
+        </div>
+      </div>
+    </section>
+    <section class="testimonials">
+      <h2>Lo que dicen nuestros usuarios</h2>
+      <div class="testimonial-list">
+        <div class="testimonial">
+          <span class="emoji">🌟</span>
+          <p>"¡Me encanta lo fácil que es usar Firebase Project!"</p>
+          <div class="user">- Ana, Desarrolladora</div>
+        </div>
+        <div class="testimonial">
+          <span class="emoji">💡</span>
+          <p>"La automatización me ahorra horas cada semana."</p>
+          <div class="user">- Luis, Emprendedor</div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div>© 2024 Firebase Project. Todos los derechos reservados.</div>
+    </footer>
+  </div>
+  <style>
+    #loader {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(120deg, #f665ea 0%, #fd85d7 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+    .loader-animation {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .loader-animation .dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      animation: bounce 0.7s infinite alternate;
+    }
+    .loader-animation .dot:nth-child(2) {
+      animation-delay: 0.2s;
+      background: #f71cde;
+    }
+    .loader-animation .dot:nth-child(3) {
+      animation-delay: 0.4s;
+      background: #f761fa;
+    }
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-30px); }
+    }
+    .loader-text {
+      font-size: 1.3rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #f71cd677;
+    }
+    #main-content {
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .features {
+      background: #fff8;
+      padding: 48px 0 32px 0;
+      text-align: center;
+    }
+    .features-list {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #ec1cf722;
+      padding: 28px 22px;
+      width: 240px;
+      min-width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 6px 24px #e11cf733;
+    }
+    .feature-card .emoji {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    .testimonials {
+      background: #f6d36522;
+      padding: 44px 0 32px 0;
+      text-align: center;
+    }
+    .testimonial-list {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .testimonial {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #f76b1c22;
+      padding: 24px 18px;
+      width: 220px;
+      min-width: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .testimonial .emoji {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+    .testimonial .user {
+      margin-top: 10px;
+      font-size: 0.98rem;
+      color: #f71cec;
+      font-weight: 600;
+    }
+    footer {
+      background: #fff8;
+      padding: 18px 0;
+      text-align: center;
+      font-size: 1rem;
+      color: #f71cc8;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-top: 32px;
+    }
+    @media (max-width: 900px) {
+      .features-list, .testimonial-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.getElementById('loader').style.opacity = 0;
+        setTimeout(() => {
+          document.getElementById('loader').style.display = 'none';
+          document.getElementById('main-content').style.display = '';
+        }, 500);
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
